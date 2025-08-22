@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg-gradient-start: #43389f;
+    --color-bg-gradient-end: #4ec6ca;
+    --color-text: #fff;
+    --color-border: #fff;
+    --color-shadow: #0003;
+    --color-number-color: #fff;
+}
+
+.container {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.container__frame {
+    background-image: linear-gradient(to top right, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+    width: 25rem;
+    height: 25rem;
+    border-radius: .125rem;
+    box-shadow: .0625rem .125rem .625rem 0 var(--color-shadow);
+    font-family: 'Courier New', Courier, sans-serif;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__frame__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__frame__center__number {
+    position: relative;
+    height: 6.25rem;
+    width: 12.5rem;
+}
+
+.container__frame__center__number__one-basis {
+    position: absolute;
+    top: 0;
+    background-color: var(--color-number-color);
+    border-radius: .1875rem;
+    box-shadow: 0 0 .8125rem 0 var(--color-shadow);
+}
+
+.one--one {
+    z-index: 1;
+    left: -1rem;
+    height: 2.5rem;
+    width: 1.25rem;
+    transform: rotate(50deg);
+}
+
+.one--two {
+    z-index: 3;
+    left: 0;
+    top: 0;
+    height: 6.25rem;
+    width: 1.5rem;
+    transform: rotate(0deg);
+}
+
+.container__frame__center__number__zero-basis {
+    position: absolute;
+    top: 0;
+    height: 6.25rem;
+    width: 6.25rem;
+    border-radius: 50%;
+    border: 1.25rem solid var(--color-border);
+    box-shadow: 0 0 .8125rem 0 var(--color-shadow);
+}
+
+.zero--one {
+    z-index: 2;
+    left: 1.1rem;
+}
+
+.zero--two {
+    z-index: 1;
+    left: 6.25rem;
+}
+
+.container__frame__center__text-basis {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 4;
+}
+
+.big--text {
+    font-size: 5.125rem;
+    line-height: .73;
+    margin-top: .38rem;
+}
+
+.small--text {
+    font-size: 1.4375rem;
+    line-height: .87;
+    letter-spacing: .04em;
+}
