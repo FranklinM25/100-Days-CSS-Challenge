@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de los colores utilizados */
+:root {
+    --color-bg-frame: #3FAF82;
+    --color-bg-line: #fff;
+    --color-shadow: rgba(0,0,0,0.3);
+}
+
+
+/* Variables de los tamaños que se repiten */
+:root {
+    /* 🧱 Estructura del ícono de menú */
+    --menu-icon-line-height: .5rem;
+    --menu-icon-line-space: .875rem;
+    --menu-icon-line-offsetY: 1.375rem;
+    --menu-icon-height: 3.25rem;
+
+    /* 🎬 Curvas de animación */
+    --cubic-bezier-in: cubic-bezier(0.30, 1, 0.70, 1);
+    --cubic-bezier-out: cubic-bezier(1, 0.70, 1, 0.30);
+}
+
+
+
+.container {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.container__frame {
+    height: 25rem;
+    width: 25rem;
+    background-color: var(--color-bg-frame);
+    border-radius: .125rem;
+    box-shadow: .0625rem .125rem .625rem 0 var(--color-shadow);
+}
+
+.container__frame__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container__frame__center__menu-icon {
+    width: 5rem;
+    height: var(--menu-icon-height);
+    cursor: pointer;
+}
+
+.container__frame__center__menu-icon__line-basis {
+    height: var(--menu-icon-line-height);
+    width: 100%;
+    background-color: var(--color-bg-line);
+    border-radius: .1875rem;
+    box-shadow: 0 0.125rem 0.625rem 0 var(--color-shadow);
+    transition: background-color .2s ease-in-out;
+}
+
+/* ------------------------------------------------------------- */
+
+.line-2 {
+        margin: var(--menu-icon-line-space) 0;
+}
+
+/* ------------------------------------------------------------- */
+.container__frame__center__menu-icon.active .line-1 {
+    animation: animate-line-1 0.7s var(--cubic-bezier-in) forwards;
+}
+.container__frame__center__menu-icon.active .line-2 {
+    animation: animate-line-2 0.7s var(--cubic-bezier-in) forwards;
+}
+.container__frame__center__menu-icon.active .line-3 {
+    animation: animate-line-3 0.7s var(--cubic-bezier-in) forwards;
+}
+
+.container__frame__center__menu-icon:not(.active) .line-1 {
+    animation: animate-line-1-rev 0.7s ease-in-out;
+}
+.container__frame__center__menu-icon:not(.active) .line-2 {
+    animation: animate-line-2-rev 0.7s ease-in-out;
+}
+.container__frame__center__menu-icon:not(.active) .line-3 {
+    animation: animate-line-3-rev 0.7s ease-in-out;
+}
+
+.no-animation {
+    animation: none !important;
+}
+
+/* ------------------------------------------------------------- */
+
+@keyframes animate-line-1 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, var(--menu-icon-line-offsetY), 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(0, var(--menu-icon-line-offsetY), 0) rotate(45deg);
+    }
+}
+
+@keyframes animate-line-2 {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes animate-line-3 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -1.375rem, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(0, -1.375rem, 0) rotate(135deg);
+    }
+    
+}
+
+/* ------------------------------------------------------------- */
+
+@keyframes animate-line-1-rev {
+    0% {
+        transform: translate3d(0, var(--menu-icon-line-offsetY), 0) rotate(45deg);
+    }
+    50% {
+        transform: translate3d(0, var(--menu-icon-line-offsetY), 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
+
+@keyframes animate-line-2-rev {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes animate-line-3-rev {
+    0% {
+        transform: translate3d(0, -1.375rem, 0) rotate(135deg);
+    }
+    50% {
+        transform: translate3d(0, -1.375rem, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
