@@ -71,6 +71,8 @@
 }
 
 /* ------------------------------------------------------------- */
+
+/* Se selecionan los elementos con la clase .line-x que tengan como padre lo anterior */
 .container__frame__center__menu-icon.active .line-1 {
     animation: animate-line-1 0.7s var(--cubic-bezier-in) forwards;
 }
@@ -130,7 +132,6 @@
     100% {
         transform: translate3d(0, -1.375rem, 0) rotate(135deg);
     }
-    
 }
 
 /* ------------------------------------------------------------- */
